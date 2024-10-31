@@ -7,6 +7,9 @@ import { EntradaDeDadosComponent } from './entrada-de-dados/entrada-de-dados.com
 import { FuncaoTranslandarComponent } from './funcao-translandar/funcao-translandar.component';
 import { FuncaoEscalonarComponent } from './funcao-escalonar/funcao-escalonar.component';
 import { FuncaoRotacionarComponent } from './funcao-rotacionar/funcao-rotacionar.component';
+import { FuncaoAvioesProxAeropComponent } from './funcao-avioes-prox-aerop/funcao-avioes-prox-aerop.component';
+import { FuncaoAvioesProxComponent } from './funcao-avioes-prox/funcao-avioes-prox.component';
+import { FuncaoRotaColisaoComponent } from './funcao-rota-colisao/funcao-rota-colisao.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { FuncaoRotacionarComponent } from './funcao-rotacionar/funcao-rotacionar
     EntradaDeDadosComponent,
     FuncaoTranslandarComponent,
     FuncaoEscalonarComponent,
-    FuncaoRotacionarComponent
+    FuncaoRotacionarComponent,
+    FuncaoAvioesProxAeropComponent,
+    FuncaoAvioesProxComponent,
+    FuncaoRotaColisaoComponent
   ],
   imports: [
     BrowserModule,
