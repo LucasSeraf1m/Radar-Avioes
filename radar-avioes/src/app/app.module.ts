@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { EntradaDeDadosComponent } from './entrada-de-dados/entrada-de-dados.component';
 import { FuncaoTranslandarComponent } from './funcao-translandar/funcao-translandar.component';
 import { FuncaoEscalonarComponent } from './funcao-escalonar/funcao-escalonar.component';
+import { FuncaoRotacionarComponent } from './funcao-rotacionar/funcao-rotacionar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EntradaDeDadosComponent,
     FuncaoTranslandarComponent,
-    FuncaoEscalonarComponent
+    FuncaoEscalonarComponent,
+    FuncaoRotacionarComponent
   ],
   imports: [
     BrowserModule,
