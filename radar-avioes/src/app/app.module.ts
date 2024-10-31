@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EntradaDeDadosComponent } from './entrada-de-dados/entrada-de-dados.component';
 import { FuncaoTranslandarComponent } from './funcao-translandar/funcao-translandar.component';
+import { FuncaoEscalonarComponent } from './funcao-escalonar/funcao-escalonar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EntradaDeDadosComponent,
-    FuncaoTranslandarComponent
+    FuncaoTranslandarComponent,
+    FuncaoEscalonarComponent
   ],
   imports: [
     BrowserModule,
