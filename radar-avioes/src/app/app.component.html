@@ -1,9 +1,35 @@
-<div>
-  <app-entrada-de-dados class="w-1/5"></app-entrada-de-dados>
-  <app-funcao-translandar></app-funcao-translandar>
-  <app-funcao-escalonar></app-funcao-escalonar>
-  <app-funcao-rotacionar></app-funcao-rotacionar>
-  <app-funcao-avioes-prox-aerop></app-funcao-avioes-prox-aerop>
-  <app-funcao-avioes-prox></app-funcao-avioes-prox>
-  <app-funcao-rota-colisao></app-funcao-rota-colisao>
+<div class="flex w-full gap-3  p-3">
+  <div class="flex flex-col w-full gap-3">
+    <p>Entrada de Dados</p>
+    <app-entrada-de-dados></app-entrada-de-dados>
+
+    <div class="flex flex-col gap-3">
+      <p>Funções de Transformação</p>
+      <div class="flex w-full gap-3">
+        <app-funcao-translandar class="w-full"></app-funcao-translandar>
+        <app-funcao-escalonar class="w-full"></app-funcao-escalonar>
+      </div>
+      <app-funcao-rotacionar></app-funcao-rotacionar>
+    </div>
+
+    <p>Funções de Rastreamento</p>
+    <app-funcao-avioes-prox-aerop></app-funcao-avioes-prox-aerop>
+  </div>
+
+  <div class="flex flex-col w-full gap-3">
+    <p>Radar</p>
+    <app-radar></app-radar>
+
+    <div class="flex w-full gap-3">
+      <app-funcao-avioes-prox class="w-full"></app-funcao-avioes-prox>
+      <app-funcao-rota-colisao class="w-full"></app-funcao-rota-colisao>
+    </div>
+  </div>
+
+  <div class="flex flex-col w-full gap-3">
+    <p>DataGrid</p>
+    <app-data-grid></app-data-grid>
+    <p>Relatório</p>
+    <app-relatorio></app-relatorio>
+  </div>
 </div>

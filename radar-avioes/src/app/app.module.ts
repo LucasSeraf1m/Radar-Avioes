@@ -10,6 +10,9 @@ import { FuncaoRotacionarComponent } from './funcao-rotacionar/funcao-rotacionar
 import { FuncaoAvioesProxAeropComponent } from './funcao-avioes-prox-aerop/funcao-avioes-prox-aerop.component';
 import { FuncaoAvioesProxComponent } from './funcao-avioes-prox/funcao-avioes-prox.component';
 import { FuncaoRotaColisaoComponent } from './funcao-rota-colisao/funcao-rota-colisao.component';
+import { RadarComponent } from './radar/radar.component';
+import { DataGridComponent } from './data-grid/data-grid.component';
+import { RelatorioComponent } from './relatorio/relatorio.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,10 @@ import { FuncaoRotaColisaoComponent } from './funcao-rota-colisao/funcao-rota-co
     FuncaoRotacionarComponent,
     FuncaoAvioesProxAeropComponent,
     FuncaoAvioesProxComponent,
-    FuncaoRotaColisaoComponent
+    FuncaoRotaColisaoComponent,
+    RadarComponent,
+    DataGridComponent,
+    RelatorioComponent
   ],
   imports: [
     BrowserModule,
