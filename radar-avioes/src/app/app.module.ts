@@ -13,6 +13,7 @@ import { FuncaoRotaColisaoComponent } from './funcao-rota-colisao/funcao-rota-co
 import { RadarComponent } from './radar/radar.component';
 import { DataGridComponent } from './data-grid/data-grid.component';
 import { RelatorioComponent } from './relatorio/relatorio.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RelatorioComponent } from './relatorio/relatorio.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

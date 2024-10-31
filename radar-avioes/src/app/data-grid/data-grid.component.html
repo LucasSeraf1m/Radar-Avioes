@@ -1,3 +1,29 @@
-<div class="size-full border-2 border-black gap-3 p-3">
-  <p>DataGrid</p>
+<div class="flex flex-col size-full border-2 border-black gap-3 p-3">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>ID</th>
+        <th>X</th>
+        <th>Y</th>
+        <th>R</th>
+        <th>A</th>
+        <th>V</th>
+        <th>D</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let linha of linhas; let i = index">
+        <td><input type="checkbox"></td>
+        <td><input [(ngModel)]="linha.ID" /></td>
+        <td><input [(ngModel)]="linha.X" /></td>
+        <td><input [(ngModel)]="linha.Y" /></td>
+        <td><input [(ngModel)]="linha.R" /></td>
+        <td><input [(ngModel)]="linha.A" /></td>
+        <td><input [(ngModel)]="linha.V" /></td>
+        <td><input [(ngModel)]="linha.D" /></td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="addLinha()">Add Linha</button>
 </div>

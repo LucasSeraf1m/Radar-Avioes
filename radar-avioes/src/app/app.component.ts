@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataGridService } from './Services/data-grid.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'radar-avioes';
+
+  constructor(private dataGridService: DataGridService) {}
+
+  limparDados() {
+    this.dataGridService.limparDados();
+  }
 }
