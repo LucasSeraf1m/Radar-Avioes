@@ -13,6 +13,8 @@ export class RadarComponent {
   private ctx!: CanvasRenderingContext2D;
   private dataSubscription!: Subscription;
 
+  private imageObj = new Image();
+
   constructor(private dataGridService: DataGridService) {}
 
   ngAfterViewInit() {
@@ -58,14 +60,13 @@ export class RadarComponent {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
 
+    this.imageObj.src = 'assets/boeing_454.svg';
+
     data.forEach(point => {
       const x = centerX + point.X * 2.34; // Fator de escala para visibilidade
       const y = centerY - point.Y * 2.34; // Inverter Y para orientação cartesiana
 
-      this.ctx.beginPath();
-      this.ctx.arc(x, y, 5, 0, 2 * Math.PI); // Plotar o ponto como um pequeno círculo
-      this.ctx.fillStyle = 'blue';
-      this.ctx.fill();
+      this.ctx.drawImage(this.imageObj, x - 10, y - 10, 20, 20);
     });
   }
 }
