@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let linha of linhas; let i = index">
-        <td><input type="checkbox"></td>
+        <td><input type="checkbox" [(ngModel)]="linha.Selected"></td>
         <td><input [(ngModel)]="linha.ID" /></td>
         <td><input [(ngModel)]="linha.X" /></td>
         <td><input [(ngModel)]="linha.Y" /></td>

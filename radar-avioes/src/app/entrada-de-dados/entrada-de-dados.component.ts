@@ -43,6 +43,7 @@ export class EntradaDeDadosComponent {
     }
 
     let novaLinha = {
+      Selected: false,
       ID: this.dataGridService.getLinhas().length + 1,
       X: this.X ?? 0,
       Y: this.Y ?? 0,

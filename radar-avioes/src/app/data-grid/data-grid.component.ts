@@ -10,8 +10,8 @@ export class DataGridComponent {
 
   constructor(private dataGridService: DataGridService) {}
 
-  linhas: { ID: number; X: number; Y: number; R: number; A: number; V: number; D: number }[] = [
-    { ID: 0, X: 0, Y: 0, R: 0, A: 0, V: 0, D: 0 }
+  linhas: {Selected: boolean; ID: number; X: number; Y: number; R: number; A: number; V: number; D: number }[] = [
+    {Selected: false, ID: 0, X: 0, Y: 0, R: 0, A: 0, V: 0, D: 0 }
   ];
 
   ngOnInit() {

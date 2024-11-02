@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ConversorService {
 
-  convertPolar(linha: { ID: number; X: number; Y: number; R: number; A: number; V: number; D: number }) {
+  convertPolar(linha: {Selected: boolean; ID: number; X: number; Y: number; R: number; A: number; V: number; D: number }) {
 
     let raio = Math.sqrt(linha.X * linha.X + linha.Y * linha.Y);
     let radiano = Math.atan2(linha.Y, linha.X); //This takes y first
@@ -17,7 +17,7 @@ export class ConversorService {
     return linha;
   }
 
-  convertCartesiano(linha: { ID: number; X: number; Y: number; R: number; A: number; V: number; D: number }) {
+  convertCartesiano(linha: {Selected: boolean; ID: number; X: number; Y: number; R: number; A: number; V: number; D: number }) {
     let x = linha.R * Math.cos(linha.A * Math.PI / 180);
     let y = linha.R * Math.sin(linha.A * Math.PI / 180);
 

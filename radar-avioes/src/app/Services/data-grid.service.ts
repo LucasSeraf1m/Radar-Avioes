@@ -5,18 +5,23 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DataGridService {
-  private data: { ID: number; X: number; Y: number; R: number; A: number; V: number; D: number }[] = [];
+  private data: {Selected: boolean; ID: number; X: number; Y: number; R: number; A: number; V: number; D: number }[] = [];
   private dataSubject = new BehaviorSubject(this.data);
 
   getLinhas() {
     return this.data;
   }
 
+  getLinhasSelecionadas(){
+      let linhas = this.data.filter(linha => linha.Selected);
+      return linhas;
+    }
+  
   getDataObservable() {
     return this.dataSubject.asObservable();
   }
 
-  addLinha(newLinha: { ID: number; X: number; Y: number; R: number; A: number; V: number; D: number }) {
+  addLinha(newLinha: {Selected: boolean; ID: number; X: number; Y: number; R: number; A: number; V: number; D: number }) {
     this.data.push(newLinha);
     this.dataSubject.next(this.data);
   }
