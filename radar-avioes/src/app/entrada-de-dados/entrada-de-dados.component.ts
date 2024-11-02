@@ -17,19 +17,36 @@ export class EntradaDeDadosComponent {
   Direcao?: number;
 
   addLinha() {
-    // Check if either (X, Y) or (R, A) is defined, but not both
-    const hasXY = this.X !== undefined && this.Y !== undefined;
-    const hasRA = this.Raio !== undefined && this.Angulo !== undefined;
+    const hasXY =
+      this.X !== undefined &&
+      this.Y !== undefined &&
+      this.Raio === undefined &&
+      this.Angulo === undefined;
+    const hasRA =
+      this.Raio !== undefined &&
+      this.Angulo !== undefined &&
+      this.X === undefined &&
+      this.Y === undefined;
 
-    if (hasXY && hasRA) {
-      alert('Informe apenas (X e Y) ou (R e A).');
-      return;
-    } else if (!hasXY && !hasRA) {
-      alert('Informe (X e Y) ou (R e A).');
+    if (!hasXY && !hasRA) {
+      alert(
+        'Informe apenas (X e Y) ou (R e A), mas não ambos ou uma combinação.'
+      );
+      this.X = undefined;
+      this.Y = undefined;
+      this.Raio = undefined;
+      this.Angulo = undefined;
+      this.Velocidade = undefined;
+      this.Direcao = undefined;
       return;
     }
 
-    // Create the new line with defaults if undefined values remain for required numbers
+    // if (hasXY) {
+    //   let raio = Math.sqrt(this.X * this.X + this.Y * this.Y?)
+    //   let angulo = Math.atan2(y,x) //This takes y first
+    //   let polarCoor = { distance:distance, radians:radians }
+    // }
+
     const novaLinha = {
       ID: this.dataGridService.getLinhas().length + 1,
       X: this.X ?? 0,
@@ -42,13 +59,12 @@ export class EntradaDeDadosComponent {
 
     this.dataGridService.addLinha(novaLinha);
 
-    // Reset inputs to undefined
-    this.X =
-    this.Y =
-    this.Raio =
-    this.Angulo =
-    this.Velocidade =
-    this.Direcao =
-    undefined;
+    // Reset inputs to undefined for the next entry
+    this.X = undefined;
+    this.Y = undefined;
+    this.Raio = undefined;
+    this.Angulo = undefined;
+    this.Velocidade = undefined;
+    this.Direcao = undefined;
   }
 }

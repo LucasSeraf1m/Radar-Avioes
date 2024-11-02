@@ -5,10 +5,11 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-radar',
   templateUrl: './radar.component.html',
-  styleUrls: ['./radar.component.css']
+  styleUrls: ['./radar.component.css'],
 })
 export class RadarComponent {
-  @ViewChild('cartesianCanvas', { static: true }) canvasRef!: ElementRef<HTMLCanvasElement>;
+  @ViewChild('cartesianCanvas', { static: true })
+  canvasRef!: ElementRef<HTMLCanvasElement>;
 
   private ctx!: CanvasRenderingContext2D;
   private dataSubscription!: Subscription;
@@ -22,11 +23,13 @@ export class RadarComponent {
     this.drawPlane();
 
     // Inscrever-se para mudanças nos dados
-    this.dataSubscription = this.dataGridService.getDataObservable().subscribe(data => {
-      this.clearCanvas();
-      this.drawPlane();
-      this.plotPoints(data);
-    });
+    this.dataSubscription = this.dataGridService
+      .getDataObservable()
+      .subscribe((data) => {
+        this.clearCanvas();
+        this.drawPlane();
+        this.plotPoints(data);
+      });
   }
 
   ngOnDestroy() {
@@ -55,18 +58,38 @@ export class RadarComponent {
     this.ctx.clearRect(0, 0, canvas.width, canvas.height);
   }
 
-  private plotPoints(data: { ID: number; X: number; Y: number; R: number; A: number; V: number; D: number }[]) {
+  private plotPoints(
+    data: {
+      ID: number;
+      X: number;
+      Y: number;
+      R: number;
+      A: number;
+      V: number;
+      D: number;
+    }[]
+  ) {
     const canvas = this.canvasRef.nativeElement;
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
 
     this.imageObj.src = 'assets/boeing_454.svg';
 
-    data.forEach(point => {
-      const x = centerX + point.X * 2.34; // Fator de escala para visibilidade
-      const y = centerY - point.Y * 2.34; // Inverter Y para orientação cartesiana
+    data.forEach((point) => {
+      const x = centerX + point.X * 2.34;
+      const y = centerY - point.Y * 2.34;
 
-      this.ctx.drawImage(this.imageObj, x - 10, y - 10, 20, 20);
+      const angleInRadians = (point.D * Math.PI) / 180;
+
+      this.ctx.save();
+
+      this.ctx.translate(x, y);
+
+      this.ctx.rotate(-angleInRadians);
+
+      this.ctx.drawImage(this.imageObj, -10, -10, 20, 20);
+
+      this.ctx.restore();
     });
   }
 }
