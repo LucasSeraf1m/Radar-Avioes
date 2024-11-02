@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DataGridService } from '../Services/data-grid.service';
+import { ConversorService } from '../Services/conversor.service';
 
 @Component({
   selector: 'app-entrada-de-dados',
@@ -7,7 +8,7 @@ import { DataGridService } from '../Services/data-grid.service';
   styleUrls: ['./entrada-de-dados.component.css'],
 })
 export class EntradaDeDadosComponent {
-  constructor(private dataGridService: DataGridService) {}
+  constructor(private dataGridService: DataGridService, private conversorService: ConversorService) {}
 
   X?: number;
   Y?: number;
@@ -41,13 +42,7 @@ export class EntradaDeDadosComponent {
       return;
     }
 
-    // if (hasXY) {
-    //   let raio = Math.sqrt(this.X * this.X + this.Y * this.Y?)
-    //   let angulo = Math.atan2(y,x) //This takes y first
-    //   let polarCoor = { distance:distance, radians:radians }
-    // }
-
-    const novaLinha = {
+    let novaLinha = {
       ID: this.dataGridService.getLinhas().length + 1,
       X: this.X ?? 0,
       Y: this.Y ?? 0,
@@ -56,6 +51,12 @@ export class EntradaDeDadosComponent {
       V: this.Velocidade ?? 0,
       D: this.Direcao ?? 0,
     };
+
+    if (hasXY) {
+      novaLinha = this.conversorService.convertPolar(novaLinha);
+    }else{
+      novaLinha = this.conversorService.convertCartesiano(novaLinha);
+    }
 
     this.dataGridService.addLinha(novaLinha);
 
