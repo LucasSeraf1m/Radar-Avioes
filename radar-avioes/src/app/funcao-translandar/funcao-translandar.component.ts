@@ -15,13 +15,17 @@ export class FuncaoTranslandarComponent {
 
   translandar() {
     let linhas = this.dataGridService.getLinhasSelecionadas();
-    
+
     linhas.forEach(linha => {
       linha.X = this.X!;
       linha.Y = this.Y!;
 
       linha = this.conversorService.convertPolar(linha);
     });
-    
+
+    this.dataGridService.updateData();
+
+    this.X = undefined;
+    this.Y = undefined;
   }
 }
