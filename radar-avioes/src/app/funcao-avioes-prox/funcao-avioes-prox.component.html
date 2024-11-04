@@ -2,8 +2,8 @@
   <div class="flex gap-3">
     <div>
       <label class="mr-3">Distância mínima:</label>
-      <input class="w-10 border-2 border-black" type="number">
+      <input class="w-10 border-2 border-black" type="number" [(ngModel)]="distancia" />
     </div>
   </div>
 
-  <button class="border-2 border-black p-2 w-full">Aviões próximos</button>
+  <button class="border-2 border-black p-2 w-full" (click)="paresProximos()">Aviões próximos</button>
