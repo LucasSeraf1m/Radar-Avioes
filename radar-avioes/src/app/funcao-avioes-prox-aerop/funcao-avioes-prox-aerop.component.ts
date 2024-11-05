@@ -14,9 +14,11 @@ export class FuncaoAvioesProxAeropComponent {
   avioesProximos(){
     let linhas = this.dataGridService.getLinhas();
     let avioes = linhas.filter(linha => linha.R <= this.distancia);
-    
+
     avioes = avioes.sort((a, b) => a.R - b.R);
 
-    return avioes;
+    this.dataGridService.addRelatorioEntry(avioes, 'aeroporto', this.distancia);
+
+    this.distancia = 0;
   }
 }

@@ -47,4 +47,18 @@ export class DataGridService {
   updateData() {
     this.dataSubject.next(this.data);
   }
+
+  private relatorioSubject = new BehaviorSubject<any[]>([]);
+  relatorio$ = this.relatorioSubject.asObservable();
+
+  addRelatorioEntry(dados: any[], tipo: 'aeroporto' | 'pares', distancia: number) {
+    const currentEntries = this.relatorioSubject.value;
+    const newEntry = {
+      timestamp: new Date(),
+      tipo: tipo,
+      distanciaMinima: distancia,
+      dados: dados
+    };
+    this.relatorioSubject.next([...currentEntries, newEntry]);
+  }
 }

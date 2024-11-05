@@ -1,3 +1,23 @@
-<div class="size-full border-2 border-black gap-3 p-3">
-  <p>Relatório</p>
+<div class="size-full border-2 border-black gap-3 p-3 overflow-y-scroll">
+  <ul>
+    <li *ngFor="let entry of relatorioEntries.reverse()">
+      <div *ngIf="entry.tipo === 'aeroporto'">
+        {{entry.timestamp | date:'short'}} - Aviões a menos de {{entry.distanciaMinima}}km do aeroporto:
+        <ul>
+          <li *ngFor="let aviao of entry.dados">
+            ID: {{aviao.ID}} - Distância: {{aviao.R}}km
+          </li>
+        </ul>
+      </div>
+
+      <div *ngIf="entry.tipo === 'pares'">
+        {{entry.timestamp | date:'short'}} - Aviões a menos de {{entry.distanciaMinima}}km entre si:
+        <ul>
+          <li *ngFor="let par of entry.dados">
+            ID: {{par.aviao1.ID}} e ID: {{par.aviao2.ID}} - Distância: {{par.distancia | number:'1.0-2'}}km
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
 </div>

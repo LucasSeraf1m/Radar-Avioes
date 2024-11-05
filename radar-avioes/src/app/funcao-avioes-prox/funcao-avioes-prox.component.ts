@@ -25,7 +25,9 @@ export class FuncaoAvioesProxComponent {
     }
 
     avioesProximos.sort((a, b) => a.distancia - b.distancia);
-    
-    return avioesProximos;
+
+    this.dataGridService.addRelatorioEntry(avioesProximos, 'pares', this.distancia);
+
+    this.distancia = 0;
   }
 }
