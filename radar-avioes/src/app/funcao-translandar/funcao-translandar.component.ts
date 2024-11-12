@@ -17,8 +17,8 @@ export class FuncaoTranslandarComponent {
     let linhas = this.dataGridService.getLinhasSelecionadas();
 
     linhas.forEach(linha => {
-      linha.X = this.X!;
-      linha.Y = this.Y!;
+      linha.X = linha.X + this.X!;
+      linha.Y = linha.Y + this.Y!;
 
       linha = this.conversorService.convertPolar(linha);
     });
