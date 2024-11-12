@@ -1,9 +1,9 @@
 <div class="flex flex-col items-center border-2 border-black gap-3 p-3">
   <div class="flex gap-3">
     <div>
-      <label class="mr-3">Distância mínima:</label>
-      <input class="w-10 border-2 border-black" type="number" [(ngModel)]="distanciaMinima">
+      <label class="mr-3">Tempo mínimo:</label>
+      <input class="w-10 border-2 border-black" type="number" [(ngModel)]="tempoMinimo">
     </div>
   </div>
 
-  <button class="border-2 border-black p-2 w-full" (click)="colisao()">Em rota de colisão</button>
+  <button class="border-2 border-black p-2 w-full" (click)="colisoesPotenciais()">Em rota de colisão</button>

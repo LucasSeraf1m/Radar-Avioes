@@ -18,6 +18,15 @@
           </li>
         </ul>
       </div>
+
+      <div *ngIf="entry.tipo === 'colisoes'">
+        {{entry.timestamp | date:'short'}} - Aviões a menos de {{entry.distanciaMinima}}s de colisão:
+        <ul>
+          <li *ngFor="let par of entry.dados">
+            ID: {{par.aviao1.ID}} e ID: {{par.aviao2.ID}} - Tempo de colisão: {{par.diferencaTempo | number:'1.2-2'}}s
+          </li>
+        </ul>
+      </div>
     </li>
   </ul>
 </div>
