@@ -42,13 +42,45 @@ export class RadarComponent {
     const height = canvas.height;
     this.ctx.clearRect(0, 0, width, height);
 
+    // Definir a escala (10 unidades correspondem a 50 pixels)
+    const scale = 2.33; // 1 unidade = 5 pixels (ajuste conforme necessário)
+
+    // Desenhar linhas verticais de 10 unidades em escala
+    this.ctx.beginPath();
+    this.ctx.strokeStyle = '#967444'; // Cor das linhas
+    this.ctx.lineWidth = 1;
+
+    const step = 10; // 10 unidades no plano cartesiano (em escala)
+
+    // Linhas verticais à esquerda e à direita do eixo Y
+    for (let x = width / 2 + scale * step; x < width; x += scale * step) {
+      this.ctx.moveTo(x, 0);
+      this.ctx.lineTo(x, height);
+    }
+    for (let x = width / 2 - scale * step; x > 0; x -= scale * step) {
+      this.ctx.moveTo(x, 0);
+      this.ctx.lineTo(x, height);
+    }
+
+    // Desenhar linhas horizontais de 10 unidades em escala
+    for (let y = height / 2 + scale * step; y < height; y += scale * step) {
+      this.ctx.moveTo(0, y);
+      this.ctx.lineTo(width, y);
+    }
+    for (let y = height / 2 - scale * step; y > 0; y -= scale * step) {
+      this.ctx.moveTo(0, y);
+      this.ctx.lineTo(width, y);
+    }
+
+    this.ctx.stroke();
+
     // Desenhar eixos
     this.ctx.beginPath();
     this.ctx.moveTo(width / 2, 0); // Eixo Y
     this.ctx.lineTo(width / 2, height);
     this.ctx.moveTo(0, height / 2); // Eixo X
     this.ctx.lineTo(width, height / 2);
-    this.ctx.strokeStyle = 'black';
+    this.ctx.strokeStyle = '#bda348';
     this.ctx.lineWidth = 2;
     this.ctx.stroke();
   }
@@ -73,7 +105,7 @@ export class RadarComponent {
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
 
-    this.imageObj.src = 'assets/boeing_454.svg';
+    this.imageObj.src = 'assets/boeing_747.svg';
 
     data.forEach((point) => {
       const x = centerX + point.X * 2.34;

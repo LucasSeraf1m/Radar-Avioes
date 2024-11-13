@@ -2,7 +2,7 @@ th, td {
   width: 2.5rem;
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  border-color: rgb(189, 163, 72 / var(--tw-border-opacity));
   font-weight: 400;
 }
 
@@ -10,4 +10,5 @@ input {
   width: 100%;
   text-align: center;
 }
+
 

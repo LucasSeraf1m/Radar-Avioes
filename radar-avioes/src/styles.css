@@ -1,3 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  background-color: #070506;
+}
+
+p, div, button, input {
+  color: #bda348;
+  background-color: #070506;
+  border-color: #69491c;
+  font-family: Retro;
+  font-size: small;
+}
+
+@font-face {
+  font-family: 'Retro';
+  src: url('assets/fonts/Retro/Retro_Gaming.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
