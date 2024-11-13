@@ -80,7 +80,7 @@ export class RadarComponent {
     this.ctx.lineTo(width / 2, height);
     this.ctx.moveTo(0, height / 2); // Eixo X
     this.ctx.lineTo(width, height / 2);
-    this.ctx.strokeStyle = '#bda348';
+    this.ctx.strokeStyle = '#967444';
     this.ctx.lineWidth = 2;
     this.ctx.stroke();
   }
