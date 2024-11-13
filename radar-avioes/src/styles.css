@@ -20,3 +20,18 @@ p, div, button, input {
   font-weight: normal;
   font-style: normal;
 }
+
+input:focus {
+  border-color: #bda348; /* Desired border color when clicked */
+  outline: none; /* Optional: remove the default outline */
+}
+
+button:active {
+  outline: 2px solid #bda348; /* Change to your desired color */
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

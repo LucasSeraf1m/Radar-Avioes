@@ -11,4 +11,15 @@ input {
   text-align: center;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+.data-grid::-webkit-scrollbar {
+  display: none;
+}
 
+input[type="checkbox"] {
+  filter: brightness(0) saturate(100%) invert(45%) sepia(44%) saturate(455%) hue-rotate(356deg) brightness(94%) contrast(89%);
+}
+
+input[type="checkbox"]:checked { /* change "blue" browser chrome to yellow */
+  filter: brightness(0) saturate(100%) invert(90%) sepia(83%) saturate(6700%) hue-rotate(317deg) brightness(80%) contrast(82%);
+}

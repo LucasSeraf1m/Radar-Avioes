@@ -1,4 +1,4 @@
-<div class="flex flex-col size-full border-2 gap-3 p-3 overflow-y-scroll">
+<div class="flex flex-col size-full border-2 gap-3 p-3 overflow-y-scroll data-grid">
   <table>
     <thead>
       <tr>
@@ -14,7 +14,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let linha of linhas; let i = index">
-        <td><input type="checkbox" [(ngModel)]="linha.Selected" class="custom-checkbox"></td>
+        <td><input id="check" type="checkbox" [(ngModel)]="linha.Selected" class="flex custom-checkbox"></td>
         <td><input [(ngModel)]="linha.ID" /></td>
         <td><input [(ngModel)]="linha.X" /></td>
         <td><input [(ngModel)]="linha.Y" /></td>
